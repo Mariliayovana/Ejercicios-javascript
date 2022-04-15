@@ -46,6 +46,17 @@ function calcular (primero, segundo, operacion){
   }
 }
 console.log(calcular(23, 20, "+"));
+
+const max = prompt('Ingrese el número máximo')
+let total = 0
+for(let i = 0; i <= max; i++) {
+  if (i % 2 == 0) {
+    total = total + i
+  }else{
+    console.log()
+  }
+}
+console.log('El total es: ' + total)
 /*
 let nombre = "Maria";
 let apellido = "Zarate";
@@ -173,13 +184,3 @@ console.log(nuevoPrecio)
 */
 
 
-// const max = prompt('Ingrese el número máximo')
-// let total = 0
-// for(let i = 0; i <= max; i++) {
-//   if (i % 2 == 0) {
-//     total = total + i
-//   }else{
-//     console.log()
-//   }
-// }
-// console.log('El total es: ' + total)
