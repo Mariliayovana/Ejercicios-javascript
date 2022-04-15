@@ -1,18 +1,68 @@
 document.getElementById("miConsola").innerHTML = "Bienvenidos a Todos";
+// Datos del personal
+let nombreIngresa = prompt("Bienvenidos al Consultorio Medico. Ingrese su nombre".toUpperCase());
+let apellidoIngresa = prompt("Ingresa su apellido".toUpperCase());
+
+if ((nombreIngresa == "") || (apellidoIngresa == "")) {
+  alert("Error: El nombre o apellido es incorrecto");
+  nombreIngresa = prompt("Bienvenidos al Consultorio Medico. Ingrese su nombre".toUpperCase());
+} else {
+  alert("Bienvenida " + nombreIngresa + " " + apellidoIngresa);
+}
+
 // Datos del cliente en las variables
+for (let i = 1; i <= 11; i++) {
+    let ingresaNombre = prompt("Ingresar Nombre del Paciente " + i);
+    if(i == 3){
+      continue;  
+    } else if (i == 8) {
+      break;
+    }
+    console.log("Turno N° " + i + " Nombre: " + ingresaNombre);
+}
+
+function calcular (primero, segundo, operacion){
+  switch(operacion) {
+    case "+":
+    return primero + segundo;
+    break;
+
+    case "-":
+    return primero - segundo;
+    break;
+
+    case "*":
+    return primero * segundo;
+    break;
+
+    case "/":
+    return primero / segundo;
+    break;
+
+    default:
+    return 0;
+    break;
+
+  }
+}
+console.log(calcular(23, 20, "+"));
+/*
 let nombre = "Maria";
 let apellido = "Zarate";
 let edad = 25;
 let lugar = "lima - Peru";
 console.log("Mi nombre es " + nombre + " " + apellido + " tengo " + edad + " años de edad " + "Soy de " + lugar );
+*/ 
 /*
 let ingresaNombre = prompt("Ingresa tu nombre");
 console.log("Hola " + ingresaNombre);
-*/
+
 // El cambio de dolar a soles
+/*
 const valorDolar = 3.83;
 let cambioDolar = prompt("Ingresa la cantidad de dólares que deseas cambiar");
 console.log("Su cambio fue " + (cambioDolar * valorDolar ) + " soles.");
+*/
 /*
 let numero = 8;
 if ( numero == 8) {
@@ -31,6 +81,7 @@ if (nombreUsuario == "") {
   console.log("Nombre de Usuario ingresado " + nombreUsuario);
 }
 */
+/*
 let numeroIngresado = prompt("Ingresa un número del 0 al 9");
 
 if (numeroIngresado == 0) {
@@ -56,15 +107,7 @@ if (numeroIngresado == 0) {
 } else {
   console.log("Incorrecto, debe ingresar un número de 0 al 9. ");
 }
-
-let nombreIngresa = prompt("Ingresa su nombre");
-let apellidoIngresa = prompt("Ingresa su apellido");
-
-if ((nombreIngresa == "Maria") && (apellidoIngresa == "Zarate")) {
-  console.log("Bienvenida Maria Zarate");
-} else {
-  console.log("Error: El nombre o apellido es incorrecto");
-}
+*/
 // USANDO FOR
 
 // for (desde; hasta; actualización){ ...
@@ -82,26 +125,70 @@ for (let i = 0; i < 10; i ++) {
 }
 */
 // Citas de los clientes usadas y no usadas
-for (let i = 1; i <= 11; i++) {
-    let ingresaNombre = prompt("Ingresar Nombre");
-    if(i == 3 || i == 5){
-      continue;  
-    } else if (i == 7) {
-      break;
-    }
-    console.log("Turno N° " + i + " Nombre: " + ingresaNombre);
-}
-// USANDO WHILE
 
+// USANDO WHILE
+/*
 let entrada = prompt("Ingresa tus datos");
 while (entrada != "ESC"){
   console.log("El Ususario Ingresó " + entrada);
 entrada = prompt("Ingresa otro dato");
-} 
+}
+*/ 
 // USANDO DO WHILE
-
+/*
 let numero = 0;
 do {
   numero = prompt("Ingresar Número");
   console.log(numero);
 } while(parseInt(numero));
+*/
+
+// FUNCIONES
+/*
+function mensajeAmodtra (mensaje) {
+  console.log(mensaje);
+}
+mensajeAmodtra("hola anita");
+*/
+/*
+function sumar(numeroUno, numeroDos) {
+  resultado = numeroUno + numeroDos;
+}
+sumar(8,6)
+console.log(resultado);
+
+function saluda(nombre, Apellido) {
+  console.log("hola " + nombre + " " + Apellido) 
+}
+saluda("lucia", "zarate");
+*/
+/*
+const suma = (a,b) => a + b;
+const resta = (a,b) => a - b;
+const multiplo = x => x * 0.21;
+let precioProducto = prompt("Ingresa el Precio");
+let descuento = 15;
+let nuevoPrecio = resta(suma(precioProducto, multiplo(precioProducto)),descuento)
+console.log(nuevoPrecio)
+*/
+
+// function usuario( nombre, apellido) {
+//   if (nombre == "" && apellido == "") {
+//     console.log("Bienvenida " + nombre + " " + apellido)
+//   }else{
+//     console.log("Nombre equivocado");
+//   }
+  
+// }
+// ususario( ana, lupe)
+
+// const max = prompt('Ingrese el número máximo')
+// let total = 0
+// for(let i = 0; i <= max; i++) {
+//   if (i % 2 == 0) {
+//     total = total + i
+//   }else{
+//     console.log()
+//   }
+// }
+// console.log('El total es: ' + total)
