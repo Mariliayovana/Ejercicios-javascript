@@ -172,15 +172,6 @@ let nuevoPrecio = resta(suma(precioProducto, multiplo(precioProducto)),descuento
 console.log(nuevoPrecio)
 */
 
-// function usuario( nombre, apellido) {
-//   if (nombre == "" && apellido == "") {
-//     console.log("Bienvenida " + nombre + " " + apellido)
-//   }else{
-//     console.log("Nombre equivocado");
-//   }
-  
-// }
-// ususario( ana, lupe)
 
 // const max = prompt('Ingrese el número máximo')
 // let total = 0
