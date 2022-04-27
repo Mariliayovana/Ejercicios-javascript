@@ -1,7 +1,7 @@
 function solicitarNombre() {
   let nombreIngresado = prompt("Ingresar su nombre");
   let apellidoIngresa = prompt("Ingresa su apellido");
-  alert("El nombre ingresado es " + nombreIngresado + " " + apellidoIngresa);
+  alert("Bienvenida " + nombreIngresado + " " + apellidoIngresa);
 }
 solicitarNombre();
 // INGRESANDO EL PRECIO DEL PRODUCTO Y SUS DESCUENTOS
@@ -38,7 +38,7 @@ for (const guardar of ingresa)
 
     console.log(ingresa)
 
-const abarrote = ["arroz", "azucar", "fideo", "té"];
+const abarrote = ["arroz", "azucar", "fideo", "té", "maiz"];
 // console.log(abarrote.indexOf("azucar"));
 const eliminar = (nom) => {
   let proEncontrado = abarrote.indexOf(nom);
