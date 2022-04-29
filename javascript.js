@@ -1,9 +1,55 @@
+function obtenerNumeroAleatorio(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+let saludos =[ "Hola", "Cómo estás", "Bienvenido", "Que gusto de verte"]
+
 function solicitarNombre() {
+  let posSaludo = obtenerNumeroAleatorio(0,saludos.length);
+  const saludoAleatorio = saludos[posSaludo]
   let nombreIngresado = prompt("Ingresar su nombre");
   let apellidoIngresa = prompt("Ingresa su apellido");
-  alert("Bienvenida " + nombreIngresado + " " + apellidoIngresa);
+  alert(saludoAleatorio + " " + nombreIngresado + " " + apellidoIngresa);
 }
 solicitarNombre();
+
+let container = document.getElementById("contenedor");
+
+const producto = [{id: 1, nombre: "Azucar", precio: 20},
+                  {id: 2, nombre: "Arroz", precio: 15},
+                  {id: 3, nombre: "Café", precio: 12},
+                  {id: 4, nombre: "Fideos", precio: 10},
+                  {id: 5, nombre: "Lentejas", precio: 8}];
+for (const almacen  of producto){
+  
+  container.innerHTML += `<h3> ID: ${almacen.id} </h3>
+                          <p> PRODUCTO: ${almacen.nombre} </p>
+                          <p> PRECIO: ${almacen.precio} </p>`;
+}
+
+
+let boton = document.getElementById("boton");
+
+const ingresar = [];
+
+boton.addEventListener("click",function () {
+  let nombre = document.getElementById("nombre").value;
+  let precio = document.getElementById("precios").value;
+    ingresar.push({ nombre, precio})
+  // console.log(ingresar)
+  for (const suma  of ingresar) {
+
+    container.innerHTML += `<p> PRODUCTO: ${suma.nombre} </p>
+                            <p> PRECIO: ${suma.precio} </p>`;
+  }
+
+});
+
+
+
+
+
+/*
 // INGRESANDO EL PRECIO DEL PRODUCTO Y SUS DESCUENTOS
 
 const suma = (a,b) => a + b;
@@ -51,7 +97,7 @@ const eliminar = (nom) => {
 let IngresoProducto = prompt("Ingrese el producto que desea eliminar: " + abarrote);
 let elProducto = eliminar(IngresoProducto);
 console.log(elProducto);
-
+*/
 
 
 
