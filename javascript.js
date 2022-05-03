@@ -15,13 +15,12 @@ solicitarNombre();
 
 let container = document.getElementById("contenedor");
 
-const producto = [{id: 1, nombre: "Azucar", precio: 20},
-                  {id: 2, nombre: "Arroz", precio: 15},
-                  {id: 3, nombre: "Café", precio: 12},
-                  {id: 4, nombre: "Fideos", precio: 10},
-                  {id: 5, nombre: "Lentejas", precio: 8}];
+const producto = [
+  {id: 1, nombre: "Azucar", precio: 20},
+  {id: 2, nombre: "Arroz", precio: 15},
+];       
+container.innerHTML = '';
 for (const almacen  of producto){
-  
   container.innerHTML += `<h3> ID: ${almacen.id} </h3>
                           <p> PRODUCTO: ${almacen.nombre} </p>
                           <p> PRECIO: ${almacen.precio} </p>`;
@@ -30,22 +29,34 @@ for (const almacen  of producto){
 
 let boton = document.getElementById("boton");
 
-const ingresar = [];
+const todosLosProductos = [];
 
-boton.addEventListener("click",function () {
+boton.addEventListener("click",function (evento) {
+  evento.preventDefault()
   let nombre = document.getElementById("nombre").value;
   let precio = document.getElementById("precios").value;
-    ingresar.push({ nombre, precio})
-  // console.log(ingresar)
-  for (const suma  of ingresar) {
+  if ((nombre == "" ) || (precio == "")) {
+    alert("llene todos los campos del producto");
+  }else {
+  todosLosProductos.push({ nombre, precio})
+  formulario.reset();
+  for (const suma  of todosLosProductos) {
 
-    container.innerHTML += `<p> PRODUCTO: ${suma.nombre} </p>
-                            <p> PRECIO: ${suma.precio} </p>`;
+    container.innerHTML += `<h3> producto ingresado</h3>
+                            <p> PRODUCTO: ${suma.nombre} </p>
+                            <p> CANTIDAD: ${suma.precio} </p>`;
+    }
   }
-
 });
 
+// let miFormulario = document.getElementById("formulario");
+// miFormulario.addEventListener("submit", validarFormulario);
 
+// function validarFormulario (e) {
+//   e.preventDefault();
+//   let formulario = e.target
+//   formulario.innerHTML = `<p> Producto: ${formulario.children.length + 1} </p>`
+// }
 
 
 
