@@ -23,65 +23,64 @@
               <a class="nav-link active text-light" aria-current="page" href="./index.html">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="#">Abarrotes</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Frutas y Verduras</a>
-              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                <li><a class="dropdown-item" href="#">Frutas</a></li>
-                <li><a class="dropdown-item" href="#">Verduras</a></li>
-              </ul>
+              <a class="nav-link text-light" href="#">Verduras</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled text-light">Limpieza</a>
+              <a class="nav-link text-light" href="#">carrito</a>
             </li>
           </ul>
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Busca" aria-label="Search">
             <button class="btn btn-outline-light" type="submit">Buscar</button>
           </form>
-          <div class="dropdown">
-            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-              Canasta
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <li><button class="dropdown-item" type="button">Vacío</button></li>
-            </ul>
-          </div>
         </div>
       </div>
     </nav>
   </header>
   <main>
-    <!--pantalla 1 -->
-    <div class="ingreso">
-      <form id="inicio">
-        <label for="nombreCliente">Nombre:</label>
-        <input id="nombreCliente" class="form-control" type="text" placeholder="nombre"/>
-        <label for="apellido">Apellido:</label>
-        <input id="apellido" class="form-control" type="text" placeholder="Apellido"/>
-        <button id="botoncito" class="btn btn-primary mt-3">Acepto</button>
-      </form>
+    <!-- Pantalla Login -->
+    <div id="login" class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-4 col-md-8 col-sm-8">
+          <div class="card shadow">
+            <div class="card-title text-center border-bottom">
+              <h2 class="p-3">Login</h2>  
+            </div>
+            <div class="card-body">
+              <form id="inicio">
+                <div class="mb-4">
+                  <label for="nombreCliente" class="form-label">Usuario</label>
+                  <input type="text" class="form-control" id="nombreCliente">
+                </div>
+                <div class="mb-4">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="password">
+                </div>
+                <p id="error" class="fs-6 text-danger"></p>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary" id="botoncito">Enviar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- pantalla 2 -->
+    <!-- pantalla 1 -->
     <h1 id="nombreTitulo">Inicio</h1>
-    <div>
-      <img src="" alt="">
-      <div id="contenedor"></div>
-      <!-- <input type="number">
-      <button>-</button>
-      <button>+</button>
-      <button>Agregar</button> -->
-    </div>
-    <h2 id="miConsola">PRODUCTO Y PRECIO</h2>
-    <form id="formulario">
-      <input id="nombre" type="text" placeholder="Producto">
-      <input id="precios" type="number" placeholder="Cantidad">
+    <div class="row row-cols-1 row-cols-md-4 g-4" id="contenedor"></div>
+    <!-- pantalla 2 -->
+  
+    <!-- <h2 id="miConsola">PRODUCTO Y PRECIO</h2>
+    <<input id="nombre" type="text" placeholder="Producto">
+      <form id="formulario">
+      input id="precios" type="number" placeholder="Cantidad">
       <button id="boton" type="submit">Enviar</button>
-    </form>
+    </form>  -->
   </main>
   
 </body>
 <script src="./javascript.js"></script>
+<script src="./main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
