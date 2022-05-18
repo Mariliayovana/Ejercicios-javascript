@@ -35,6 +35,40 @@ for (const product of productos)
       product.sumaIva();
       
       console.log(productos)
+// Para ver si el carrito esta vacio
+  const carrito = []     
+  carrito.length === 0 && console.log("El carrito esta vacío");
+
+  const carritos = JSON.parse(localStorage.getItem("carrito")) || []
+  // para unir el producto que tiene el mercado con los nuevos
+  const carroAlmacenado = [
+    { id: 1, producto: "Tomate", precio : 4.5 , imagen: "/imagen/tomates.jpeg", tipo: "online", valor: 0, resta: "-", suma: "+" , agregar: "Agregar"},
+    { id: 2, producto: "Zanahoria", precio: 3.5, imagen:"/imagen/zanahorias.jpeg", tipo: "online", valor: 0, resta: "-", suma: "+" , agregar: "Agregar" },
+    { id: 3, producto: "Zapallo", precio: 5.5, imagen: "/imagen/zapallo.jpeg", tipo: "online", valor: 0, resta: "-", suma: "+" , agregar: "Agregar"},
+    { id: 4, producto: "Cebolla", precio: 2.5, imagen:"/imagen/cebolla.jpeg", tipo: "online", valor: 0, resta: "-", suma: "+" , agregar: "Agregar" },
+    { id: 5, producto: "Col", precio: 6.7, imagen: "/imagen/col.jpeg", tipo: "online", valor: 0, resta: "-", suma: "+" , agregar: "Agregar" },
+  ];
+
+  const nuevoAlmacen = [
+    { id: 6, producto: "fideo", precio: 30 },
+    { id: 7, producto: "té", precio: 20 },
+    { id: 8, producto: "pan", precio: 60 },
+    { id: 9, producto: "atún", precio: 80 },
+    { id: 10, producto: "gelatina", precio: 10 },
+  ]
+  const almacenTotal = [...carroAlmacenado, ...nuevoAlmacen];
+  console.log(almacenTotal)
+ //obtenienel valor que quiere el cliente
+  const almacen = {
+    id: 6, 
+    producto: "fideo", 
+    precio: 4.5
+    };
+
+
+  const { producto, precio } = almacen;
+  console.log(producto);
+  console.log(precio);
 
 
 
