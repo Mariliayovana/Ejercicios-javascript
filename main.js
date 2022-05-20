@@ -8,7 +8,7 @@ let contenedor = document.getElementById("contenedor");
 let boton = document.getElementById("boton");
 let miFormulario = document.getElementById("formulario");
 let carro = document.getElementById("carro");
-
+let carritoDeCompras = [];
 
 //función de Login
 function obtenerNumeroAleatorio(min, max) {
@@ -31,11 +31,11 @@ botonUno.addEventListener("click", function solicitarNombre(e) {
   inicio.reset();
 })
 const productoAlmacenado = [
-    { id: 1, producto: "Tomate", precio : 4.5 , imagen: "/imagen/tomates.jpeg", tipo: "online", valor: 0, resta: "-", suma: "+" , agregar: "Agregar"},
-    { id: 2, producto: "Zanahoria", precio: 3.5, imagen:"/imagen/zanahorias.jpeg", tipo: "online", valor: 0, resta: "-", suma: "+" , agregar: "Agregar" },
-    { id: 3, producto: "Zapallo", precio: 5.5, imagen: "/imagen/zapallo.jpeg", tipo: "online", valor: 0, resta: "-", suma: "+" , agregar: "Agregar"},
-    { id: 4, producto: "Cebolla", precio: 2.5, imagen:"/imagen/cebolla.jpeg", tipo: "online", valor: 0, resta: "-", suma: "+" , agregar: "Agregar" },
-    { id: 5, producto: "Col", precio: 6.7, imagen: "/imagen/col.jpeg", tipo: "online", valor: 0, resta: "-", suma: "+" , agregar: "Agregar" },
+    { id: 1, producto: "Tomate", precio : 4.5 , imagen: "/imagen/tomates.jpeg", tipo: "online", valor: 0, },
+    { id: 2, producto: "Zanahoria", precio: 3.5, imagen:"/imagen/zanahorias.jpeg", tipo: "online", valor: 0,  },
+    { id: 3, producto: "Zapallo", precio: 5.5, imagen: "/imagen/zapallo.jpeg", tipo: "online", valor: 0, },
+    { id: 4, producto: "Cebolla", precio: 2.5, imagen:"/imagen/cebolla.jpeg", tipo: "online", valor: 0,  },
+    { id: 5, producto: "Col", precio: 6.7, imagen: "/imagen/col.jpeg", tipo: "online", valor: 0,  },
   ];
 
   const mostrarData = () => {
@@ -45,15 +45,15 @@ const productoAlmacenado = [
                         <div class="card h-100">
                           <img src="${productoAlmacenado[i].imagen}" class="card-img-top" alt="...">
                           <div class="card-body">
-                            <h5 class="card-title">${productoAlmacenado[i].producto}</h5>
+                            <h5 class="card-title" id="producto${i}">${productoAlmacenado[i].producto}</h5>
                             <span>${productoAlmacenado[i].tipo}</span>
                             <span> s/${productoAlmacenado[i].precio }</span>
                           </div>
                           <div class="text-center">
                             <span id="valor${i}">${productoAlmacenado[i].valor}</span>
-                            <button class="boton resta btn btn-light">${productoAlmacenado[i].resta}</button>
-                            <button class="boton sumar btn btn-light">${productoAlmacenado[i].suma}</button>
-                            <button class="btn btn-light">${productoAlmacenado[i].agregar}</button>
+                            <button class="boton resta btn btn-light">-</button>
+                            <button class="boton sumar btn btn-light">+</button>
+                            <button class=" agregar btn btn-light" data-id=${productoAlmacenado[i].id}>Agregar</button>
                           </div>
                         </div>
                       </div>`;
@@ -86,4 +86,29 @@ botones.forEach((boton, index) => {
     valor.textContent = contador[butonIndex];
   })
 })
+
+const agregara = document.querySelectorAll(".agregar");
+agregara.forEach((agregar, index) => {
+  agregar.addEventListener("click", function(e){
+    e.preventDefault()
+    const producto = document.getElementById("producto" + index);
+    const valor = document.getElementById("valor" + index);
+ 
+    
+    if (valor.textContent == "0") {
+      Swal.fire({
+        title: "Agregue la cantidad!",
+        text: " continuar",
+        icon: "error",
+        confirmButtonText:"ok"
+      })
+    }else{
+      const productId= e.target.dataset.id;
+      carritoDeCompras.push({
+        productId,cantidad:Number(valor.textContent)
+      })
+    }
+  })
+})
+
 
