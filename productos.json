@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "producto": "Tomate",
+    "precio": 4.5,
+    "imagen": "/imagen/tomates.jpeg",
+    "tipo": "online",
+    "valor": 0
+  },
+  {
+    "id": 2,
+    "producto": "Zanahoria",
+    "precio": 3.5,
+    "imagen": "/imagen/zanahorias.jpeg",
+    "tipo": "online",
+    "valor": 0
+  },
+  {
+    "id": 3,
+    "producto": "Zapallo",
+    "precio": 5.5,
+    "imagen": "/imagen/zapallo.jpeg",
+    "tipo": "online",
+    "valor": 0
+  },
+  {
+    "id": 4,
+    "producto": "Cebolla",
+    "precio": 2.5,
+    "imagen": "/imagen/cebolla.jpeg",
+    "tipo": "online",
+    "valor": 0
+  },
+  {
+    "id": 5,
+    "producto": "Col",
+    "precio": 6.7,
+    "imagen": "/imagen/col.jpeg",
+    "tipo": "online",
+    "valor": 0
+  },
+  {
+    "id": 6,
+    "producto": "Apio",
+    "precio": 3.7,
+    "imagen": "/imagen/apio.jpeg",
+    "tipo": "online",
+    "valor": 0
+  }
+]

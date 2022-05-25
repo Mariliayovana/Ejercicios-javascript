@@ -1,6 +1,6 @@
 
 // almacenado en le localStorage para mi carrito
-
+/*
 const productoAlmace = [
   { id: 1, producto: "fideo", precio: 30 },
   { id: 2, producto: "té", precio: 20 },

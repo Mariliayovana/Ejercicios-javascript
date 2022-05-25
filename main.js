@@ -7,7 +7,7 @@ let error = document.getElementById("error");
 let contenedor = document.getElementById("contenedor");
 let boton = document.getElementById("boton");
 let miFormulario = document.getElementById("formulario");
-let carro = document.getElementById("carro");
+let contadorCaja = document.getElementById("contenedorCaja");
 let carritoDeCompras = [];
 
 //función de Login
@@ -30,46 +30,42 @@ botonUno.addEventListener("click", function solicitarNombre(e) {
   }
   inicio.reset();
 })
-const productoAlmacenado = [
-    { id: 1, producto: "Tomate", precio : 4.5 , imagen: "/imagen/tomates.jpeg", tipo: "online", valor: 0, },
-    { id: 2, producto: "Zanahoria", precio: 3.5, imagen:"/imagen/zanahorias.jpeg", tipo: "online", valor: 0,  },
-    { id: 3, producto: "Zapallo", precio: 5.5, imagen: "/imagen/zapallo.jpeg", tipo: "online", valor: 0, },
-    { id: 4, producto: "Cebolla", precio: 2.5, imagen:"/imagen/cebolla.jpeg", tipo: "online", valor: 0,  },
-    { id: 5, producto: "Col", precio: 6.7, imagen: "/imagen/col.jpeg", tipo: "online", valor: 0,  },
-  ];
 
-  const mostrarData = () => {
-    let mostrar = '';
-    for (let i = 0; i < productoAlmacenado.length; i++){
-      let llamando = `<div class="col">
-                        <div class="card h-100">
-                          <img src="${productoAlmacenado[i].imagen}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title" id="producto${i}">${productoAlmacenado[i].producto}</h5>
-                            <span>${productoAlmacenado[i].tipo}</span>
-                            <span> s/${productoAlmacenado[i].precio }</span>
-                          </div>
-                          <div class="text-center">
-                            <span id="valor${i}">${productoAlmacenado[i].valor}</span>
-                            <button class="boton resta btn btn-light">-</button>
-                            <button class="boton sumar btn btn-light">+</button>
-                            <button class=" agregar btn btn-light" data-id=${productoAlmacenado[i].id}>Agregar</button>
-                          </div>
-                        </div>
-                      </div>`;
-                mostrar += llamando      
-    }
-    return mostrar
 
+let productoAlmacenado = []
+
+  const mostrarData = async() => {
+    // recorrido con json
+    const resp = await fetch("./productos.json")
+    const data = await resp.json()
+      productoAlmacenado = data
+      let mostrar = '';
+      for (let i = 0; i < productoAlmacenado.length; i++){
+        let llamando = `<div class="col">
+                          <div class="card h-100">
+                            <img src="${productoAlmacenado[i].imagen}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title" id="producto${i}">${productoAlmacenado[i].producto}</h5>
+                              <span>${productoAlmacenado[i].tipo}</span>
+                              <span> s/${productoAlmacenado[i].precio }</span>
+                            </div>
+                            <div class="text-center">
+                              <span id="valor${i}">${productoAlmacenado[i].valor}</span>
+                              <button class="boton resta btn btn-light">-</button>
+                              <button class="boton sumar btn btn-light">+</button>
+                              <button class=" agregar btn btn-light" data-id=${productoAlmacenado[i].id}>Agregar</button>
+                            </div>
+                          </div>
+                        </div>`;
+                  mostrar += llamando      
+      }
+      return mostrar
   }
-  const llenarContenido = () => {
+  const llenarContenido = async () => {
     // console.log(contenedor)
-    contenedor.innerHTML = mostrarData();
-  };
-  llenarContenido()
+    contenedor.innerHTML =await mostrarData();
 
-  // contador 
-const botones = document.querySelectorAll(".boton");
+    const botones = document.querySelectorAll(".boton");
 
 let contador = Array(productoAlmacenado.length).fill(0);
 botones.forEach((boton, index) => {
@@ -93,7 +89,7 @@ agregara.forEach((agregar, index) => {
     e.preventDefault()
     const producto = document.getElementById("producto" + index);
     const valor = document.getElementById("valor" + index);
- 
+  
     
     if (valor.textContent == "0") {
       Swal.fire({
@@ -103,12 +99,31 @@ agregara.forEach((agregar, index) => {
         confirmButtonText:"ok"
       })
     }else{
-      const productId= e.target.dataset.id;
+      const productId= Number(e.target.dataset.id);
+      const producto = productoAlmacenado.find((p) =>{
+        return p.id == productId
+      } )
       carritoDeCompras.push({
-        productId,cantidad:Number(valor.textContent)
+        ...producto,cantidad:Number(valor.textContent)
       })
-    }
-  })
-})
+      let visualizar = "";
+      for (const almacen  of carritoDeCompras){
 
+      let ingresando =`<tr>
+                        <th scope="row" data-id=${almacen.id}></th>
+                        <td>${almacen.producto}</td>
+                        <td>${almacen.cantidad}</td>
+                        <td>s/${almacen.precio }</td>
+                      </tr>`;
+                visualizar += ingresando
+                // console.log(visualizar)
+      }
+      
+      // console.log(contadorCaja)
+      contadorCaja.innerHTML = visualizar;
+      }
+    })
+  })
+};
+llenarContenido()
 

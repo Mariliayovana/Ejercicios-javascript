@@ -11,7 +11,7 @@
 <body>
   <header>
     <img src="" alt="">
-    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <nav class="navbar navbar-expand-lg navbar-light bg-danger">
       <div class="container-fluid ">
         <a class="navbar-brand" href="#">AHORRAMAS</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,17 +66,21 @@
         </div>
       </div>
     </div>
-    <!-- pantalla 1 -->
-    <h1 id="nombreTitulo">Inicio</h1>
+    <!-- pantalla 1 productos -->
+    <h1 id="nombreTitulo">Verduras</h1>
     <div class="row row-cols-1 row-cols-md-4 g-4" id="contenedor"></div>
-    <!-- pantalla 2 -->
-  
-    <!-- <h2 id="miConsola">PRODUCTO Y PRECIO</h2>
-    <<input id="nombre" type="text" placeholder="Producto">
-      <form id="formulario">
-      input id="precios" type="number" placeholder="Cantidad">
-      <button id="boton" type="submit">Enviar</button>
-    </form>  -->
+    <!-- pantalla 2  carrito-->
+    <table class="table bg-secondary">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Producto</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Precio</th>
+        </tr>
+      </thead>
+      <tbody id="contenedorCaja"></tbody>
+    </table>
   </main>
   
 </body>
