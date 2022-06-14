@@ -11,7 +11,7 @@
     "id": 2,
     "producto": "Zanahoria",
     "precio": 3.5,
-    "imagen": "/imagen/zanahorias.jpeg",
+    "imagen": "/imagen/zanahoria.jpeg",
     "tipo": "online",
     "valor": 0
   },
@@ -44,6 +44,30 @@
     "producto": "Apio",
     "precio": 3.7,
     "imagen": "/imagen/apio.jpeg",
+    "tipo": "online",
+    "valor": 0
+  },
+  {
+    "id": 7,
+    "producto": "Apio",
+    "precio": 3.7,
+    "imagen": "/imagen/yuca.jpeg",
+    "tipo": "online",
+    "valor": 0
+  },
+  {
+    "id": 8,
+    "producto": "Apio",
+    "precio": 3.7,
+    "imagen": "/imagen/brocoli.jpeg",
+    "tipo": "online",
+    "valor": 0
+  },
+  {
+    "id": 9,
+    "producto": "Apio",
+    "precio": 3.7,
+    "imagen": "/imagen/papa.jpeg",
     "tipo": "online",
     "valor": 0
   }
